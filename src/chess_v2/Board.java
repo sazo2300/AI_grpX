@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package chess_v2;
 
 import java.util.List;
@@ -19,5 +15,24 @@ public class Board {
 
     private List<Move> validWhiteMoves;
     private List<Move> validBlackMoves;
+    
+    public Board() {
+        
+    }
+    
+    public boolean isMoveValid(Move move) {
+        return false;
+    }
+    
+    public List<Move> getValidMoves(Player player) {
+        return null;
+    }
+    
+    public void move(Move move) {
+        
+    }
+    
+    
+    
     
 }
