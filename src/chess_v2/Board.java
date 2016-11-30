@@ -23,7 +23,7 @@ public class Board {
         }
         for(int i = 2 ; i < 6 ; i++){
             for(int j = 0 ; j < 8 ; j++){
-                state[i][j] = new Field("a2", new Piece(Game.Color.WHITE, Piece.Type.BLANK));
+                state[i][j] = new Field("a2", new Piece(i+j%2==0? Game.Color.BLACK : Game.Color.WHITE, Piece.Type.BLANK));
             }
             
         }
@@ -69,7 +69,7 @@ public class Board {
                 if(state[i][j].getPiece().getType() != Piece.Type.BLANK)
                 board.append(state[i][j].getPiece().getSymbol() + "|");
                 else
-                    board.append(" |");
+                    board.append(state[i][j].getPiece().getColor().equals(Game.Color.WHITE)? " |" : "X|");
             } 
         }
         board.append("   a   b   c   d   e   f   g   h");
