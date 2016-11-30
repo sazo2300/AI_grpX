@@ -10,5 +10,6 @@ package chess_v2;
  * @author atila29
  */
 public class Piece {
+    public enum Type {PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING}
     
 }
