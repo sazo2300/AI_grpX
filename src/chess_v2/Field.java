@@ -11,6 +11,18 @@ public class Field {
     private Position position;
     private String boardIndex;
     
+    
+    public Field(String f, Piece piece){
+        this(f);
+        this.piece = piece;
+    }
+    
+    public Field(int x, int y, Piece piece) {
+        this(x, y);
+        this.piece = piece;
+    }
+    
+    
     public Field(String f) {
         int indexY;
         int indexX;
@@ -107,6 +119,32 @@ public class Field {
             indexX = String.valueOf(x);
             boardIndex = indexY+indexX;
         }
+
+        
+    }
+    
+    public Piece getPiece() {
+        return piece;
+    }
+
+    public void setPiece(Piece piece) {
+        this.piece = piece;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public String getBoardIndex() {
+        return boardIndex;
+    }
+
+    public void setBoardIndex(String boardIndex) {
+        this.boardIndex = boardIndex;
     }
     
     public class Position {        
