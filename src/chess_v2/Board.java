@@ -24,7 +24,7 @@ public class Board{
         }
         for(int i = 2 ; i < 6 ; i++){
             for(int j = 0 ; j < 8 ; j++){
-                state[i][j] = new Field(i, j, new Piece((i+j)%2==0? Game.Color.WHITE : Game.Color.BLACK, Piece.Type.BLANK));
+                state[i][j] = new Field(i, j, new Piece((i+j)%2==0? Game.Color.BLACK : Game.Color.WHITE, Piece.Type.BLANK));
             }
             
         }
@@ -209,7 +209,7 @@ public class Board{
         StringBuilder board = new StringBuilder();
         for(int i = 7 ; i >= 0 ; i--){
             board.append("\n" + (i + 1) + "|");
-            for(int j = 7 ; j >= 0 ; j--){
+            for(int j = 0 ; j < 8 ; j++){
                 board.append(state[i][j].getPiece().getSymbol() + "|");
             } 
         }
