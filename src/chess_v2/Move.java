@@ -1,5 +1,7 @@
 package chess_v2;
 
+import chess_v2.Field.Position;
+
 /**
  *
  * @author atila29
@@ -8,9 +10,17 @@ public class Move {
     
     public Field origin;
     public Field destination;
+    public Board board = null;
     
     public boolean ENPASSE, QCASTLE, KCASTLE, PROMOTION, CHECKMATE;
 
+    public Move(Field origin, Field destination, Board state){
+        this.origin = origin;
+        this.destination = destination;
+        this.board = state;
+        
+    }
+    
     public Field getOrigin() {
         return origin;
     }

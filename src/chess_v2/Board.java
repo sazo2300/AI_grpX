@@ -1,13 +1,14 @@
 
 package chess_v2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author atila29
  */
-public class Board {
+public class Board{
     private Field[][] state = new Field[8][8];
     
     private List<Move> legalWhiteMoves;
@@ -48,6 +49,7 @@ public class Board {
         
         
     }
+    
     
     public boolean isMoveValid(Move move) {
         Piece currentPiece = move.getOrigin().getPiece();
@@ -95,8 +97,26 @@ public class Board {
         return false;
     }
     
-    public List<Move> getValidMoves(Player player) {
-        return null;
+
+    
+    private List<Move> getValidMoves(Player player) {
+        List<Move> validMoves = new ArrayList<>();
+
+        for(Field[] f : state){
+            for(Field r : f){
+                if(r.getPiece().getColor().equals(player.getColor())){
+                    for(int i = 0 ; i < 8 ; i++){
+                        for(int j = 0 ; j < 8 ; j++){
+                            Move move = new Move(r, getField(i, j), this);
+                            if(isMoveValid(move)){
+                                validMoves.add(move);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return validMoves;
     }
     
     public void move(Move move) {
@@ -195,6 +215,64 @@ public class Board {
         }
         board.append("\n  a  b c  d  e f  g  h");
         System.out.println(board);
+    }
+    
+    public Field getField(String f) throws Exception{
+        int indexY;
+        int indexX;
+        if(f.charAt(0) == 'a'){
+            indexY = 0;
+            String temp = f.replaceAll("\\D+","");
+            indexX = Integer.valueOf(temp) - 1;
+            return state[indexX][indexY];
+        }
+        else if(f.charAt(0) == 'b'){
+            indexY = 1;
+            String temp = f.replaceAll("\\D+","");
+            indexX = Integer.valueOf(temp) - 1;
+            return state[indexX][indexY];
+        }
+        else if(f.charAt(0) == 'c'){
+            indexY = 2;
+            String temp = f.replaceAll("\\D+","");
+            indexX = Integer.valueOf(temp) - 1;
+            return state[indexX][indexY];
+        }
+        else if(f.charAt(0) == 'd'){
+            indexY = 3;
+            String temp = f.replaceAll("\\D+","");
+            indexX = Integer.valueOf(temp) - 1;
+            return state[indexX][indexY];
+        }
+        else if(f.charAt(0) == 'e'){
+            indexY = 4;
+            String temp = f.replaceAll("\\D+","");
+            indexX = Integer.valueOf(temp) - 1;
+            return state[indexX][indexY];
+        }
+        else if(f.charAt(0) == 'f'){
+            indexY = 5;
+            String temp = f.replaceAll("\\D+","");
+            indexX = Integer.valueOf(temp) - 1;
+            return state[indexX][indexY];
+        }
+        else if(f.charAt(0) == 'g'){
+            indexY = 6;
+            String temp = f.replaceAll("\\D+","");
+            indexX = Integer.valueOf(temp) - 1;
+            return state[indexX][indexY];
+        }
+        else if(f.charAt(0) == 'h'){
+            indexY = 7;
+            String temp = f.replaceAll("\\D+","");
+            indexX = Integer.valueOf(temp) - 1;
+            return state[indexX][indexY];
+        }
+        throw new Exception("hovsa");
+    } 
+    
+    public Field getField(int x, int y){
+        return state[x][y];
     }
     
     
