@@ -2,12 +2,17 @@
 package chess_v2;
 
 import java.util.List;
-
-
+/*
+Implementation af AI der benytter sig af minimax og alpha beta pruning. 
+Nogle af metodekald fra Board er konceptuelle, dvs inde i Board er de IKKE implementerede.
+Derfor ville følgende klasse under kørsel ikke virke på nuværende tidspunk.
+Dog ville den teoratisk set virke såfremt at board og resten af skak blev
+implementeret korrekt.
+*/
 public class AI {
     
-    private int max_depth = 10;
-    private int dynamic_depth = 1;
+    private int max_depth = 1;
+    
     
     //Evaluerings funktion. Simpel evaluering af boardet KUN ved benyttelse af brikkers standard værdier
     //Det ville være optimalt at implementere mere dybdegående evalueringer som fx at tage højde
@@ -55,7 +60,7 @@ public class AI {
             }
         }
         //Returnerer evalueringen af statet hvis max dybde er nået.
-        if(depth == max_depth || depth == dynamic_depth){
+        if(depth == max_depth){
             return evalState(state);
         }
         int v;
@@ -82,7 +87,7 @@ public class AI {
         
         return v;
     }
-    //returnerer det bedste træk ved benyttelse af minimax alpha beta pruning.
+    // returnerer det bedste move indenfor de givne parameter ved benyttelse af minimax alpha beta pruning.
     public Move getBestMove(Board state, Game.Color color) throws Exception{
         List<Move> allMoves = state.getValidMoves(color);
         int bestScore = Integer.MIN_VALUE;
@@ -105,20 +110,14 @@ public class AI {
     //give algoritmen en tidsfrist hvorpå den SKAL være færdig. På den tid 
     //starter algoritmen med at søge i depth 1. Hvis den stadig har tid når den er færdig, 
     //søger den på dybde 1 og 2. Herefter 1, 2 og 3 osv. indtil den er nået sin deadline
-    //eller den totale accepterede depth.
     public Move getBestMove(Board state, Game.Color color, long deadline) throws Exception{
         long start = System.currentTimeMillis();
         long end = start + deadline*1000;
-        dynamic_depth = 1;
+        max_depth = 1;
         Move bestMove = null;
         while(System.currentTimeMillis() < end){
             bestMove = getBestMove(state, color);
-            if(dynamic_depth > max_depth){
-                dynamic_depth++;
-            }
-            else{
-                break;
-            }
+            max_depth++;
         }
         if(bestMove == null){
             throw new Exception("Hvor skal du hen du?");
