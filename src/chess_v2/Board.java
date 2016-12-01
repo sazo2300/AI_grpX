@@ -119,10 +119,17 @@ public class Board{
         return validMoves;
     }
     
-    public void move(Move move) {
-        
-        
-        move.getOrigin().getPiece().setFirstMove(false);
+    public void move(Player player, Move move) {
+        List<Move> currentMoves = getValidMoves(player);
+        if(currentMoves.contains(move)){
+            state[move.getDestination().getPosition().getX()][move.getDestination().getPosition().getY()].setPiece(move.getOrigin().getPiece());
+            state[move.getOrigin().getPosition().getX()][move.getOrigin().getPosition().getY()]
+                    .setPiece(new Piece((move.getOrigin()
+                            .getPosition().getX()+move.getOrigin()
+                                    .getPosition().getY())%2==0? Game.Color.BLACK : Game.Color.WHITE, Piece.Type.BLANK));
+            move.getOrigin().getPiece().setFirstMove(false);
+        }
+
     }
     
     public boolean freeDiagonalLine(Move move){
