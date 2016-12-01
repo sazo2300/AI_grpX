@@ -16,7 +16,7 @@ public class AI {
     
     //Evaluerings funktion. Simpel evaluering af boardet KUN ved benyttelse af brikkers standard værdier
     //Det ville være optimalt at implementere mere dybdegående evalueringer som fx at tage højde
-    //for brikkers placeringer, samt brikkers muligheder for at blive slået og slå andre brikker.
+    //for brikkers placeringer på brættet, samt brikkers muligheder for at blive slået og slå andre brikker.
     public int evalState(Board state){
         int stateValue = 0;
         int whiteValue = 0;
