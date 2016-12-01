@@ -21,6 +21,12 @@ public class Move {
         
     }
     
+    public Move(Field origin, Field destination){
+        this.origin = origin;
+        this.destination = destination;
+        
+    }
+    
     public Field getOrigin() {
         return origin;
     }

@@ -5,6 +5,9 @@
  */
 package chess_v2;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author FlazH
@@ -13,8 +16,14 @@ public class Chess {
     
     
     public static void main(String args[]){
-        Board board = new Board();
-        board.printBoard();
+        try {
+            Board board = new Board();
+            board.printBoard();
+            Move move = new Move(board.getField("a2"), board.getField("a4"));
+            System.out.println(board.isMoveValid(move));
+        } catch (Exception ex) {
+            Logger.getLogger(Chess.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
