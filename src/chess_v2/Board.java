@@ -4,10 +4,6 @@ package chess_v2;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author atila29
- */
 public class Board{
     private Field[][] state = new Field[8][8];
     

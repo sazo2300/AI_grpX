@@ -3,10 +3,7 @@ package chess_v2;
 import chess_v2.Field.Position;
 import java.util.Objects;
 
-/**
- *
- * @author atila29
- */
+
 public class Move {
     
     public Field origin;

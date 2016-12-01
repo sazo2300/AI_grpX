@@ -2,10 +2,7 @@ package chess_v2;
 
 import java.util.Vector;
 
-/**
- *
- * @author atila29
- */
+
 public class Field {
     private Piece piece = null;
     private Position position;

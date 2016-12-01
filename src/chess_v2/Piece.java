@@ -2,10 +2,7 @@ package chess_v2;
 
 import java.util.List;
 
-/**
- *
- * @author atila29
- */
+
 public class Piece {
     public enum Type {BLANK, PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING}
     private Game.Color color;

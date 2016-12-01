@@ -1,9 +1,6 @@
 package chess_v2;
 
-/**
- *
- * @author atila29
- */
+
 public class Player {
     private Game.Color color;
     
