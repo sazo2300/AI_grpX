@@ -24,6 +24,7 @@ public class Field {
     
     
     public Field(String f) {
+        this.boardIndex = f;
         int indexY;
         int indexX;
         if(f.charAt(0) == 'a'){
@@ -83,41 +84,49 @@ public class Field {
             indexY = "a";
             indexX = String.valueOf(x);
             boardIndex = indexY+indexX;
+            position = new Position(x, y);
         }
         else if(y == 1){
             indexY = "b";
             indexX = String.valueOf(x);
             boardIndex = indexY+indexX;
+            position = new Position(x, y);
         }
         else if(y == 2){
             indexY = "c";
             indexX = String.valueOf(x);
             boardIndex = indexY+indexX;
+            position = new Position(x, y);
         }
         else if(y == 3){
             indexY = "d";
             indexX = String.valueOf(x);
             boardIndex = indexY+indexX;
+            position = new Position(x, y);
         }
         else if(y == 4){
             indexY = "e";
             indexX = String.valueOf(x);
             boardIndex = indexY+indexX;
+            position = new Position(x, y);
         }
         else if(y == 5){
             indexY = "f";
             indexX = String.valueOf(x);
             boardIndex = indexY+indexX;
+            position = new Position(x, y);
         }
         else if(y == 6){
             indexY = "g";
             indexX = String.valueOf(x);
             boardIndex = indexY+indexX;
+            position = new Position(x, y);
         }
         else if(y == 7){
             indexY = "h";
             indexX = String.valueOf(x);
             boardIndex = indexY+indexX;
+            position = new Position(x, y);
         }
 
         
