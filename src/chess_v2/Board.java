@@ -108,6 +108,7 @@ public class Board{
                     for(int i = 0 ; i < 8 ; i++){
                         for(int j = 0 ; j < 8 ; j++){
                             Move move = new Move(r, getField(i, j), this);
+
                             if(isMoveValid(move)){
                                 validMoves.add(move);
                             }
@@ -122,12 +123,19 @@ public class Board{
     public void move(Player player, Move move) {
         List<Move> currentMoves = getValidMoves(player);
         if(currentMoves.contains(move)){
+            
             state[move.getDestination().getPosition().getX()][move.getDestination().getPosition().getY()].setPiece(move.getOrigin().getPiece());
             state[move.getOrigin().getPosition().getX()][move.getOrigin().getPosition().getY()]
                     .setPiece(new Piece((move.getOrigin()
                             .getPosition().getX()+move.getOrigin()
                                     .getPosition().getY())%2==0? Game.Color.BLACK : Game.Color.WHITE, Piece.Type.BLANK));
             move.getOrigin().getPiece().setFirstMove(false);
+            if(player.getColor().equals(Game.Color.WHITE) && move.getDestination().getPiece().getType().equals(Piece.Type.PAWN)){
+                if(move.getDestination().getPosition().getX() == 7){
+                    move.getDestination().setPiece(new Piece(player.getColor(), Piece.Type.QUEEN));
+                }
+            
+            }
         }
 
     }
@@ -209,6 +217,16 @@ public class Board{
             
         }
         
+        return false;
+    }
+    
+    public boolean isCheck(Board board, Player player){
+        for(Move move : board.getValidMoves(player)){
+            if(move.getDestination().getPiece().getType().equals(Piece.Type.KING)){
+                System.out.println("Player: " + player.getColor() + " has check.");
+                return true;
+            }
+        }
         return false;
     }
     
