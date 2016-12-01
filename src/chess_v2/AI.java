@@ -82,7 +82,7 @@ public class AI {
         
         return v;
     }
-    
+    //returnerer det bedste træk ved benyttelse af minimax alpha beta pruning.
     public Move getBestMove(Board state, Game.Color color) throws Exception{
         List<Move> allMoves = state.getValidMoves(color);
         int bestScore = Integer.MIN_VALUE;
