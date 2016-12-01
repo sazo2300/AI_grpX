@@ -59,10 +59,10 @@ public class Board{
         if(currentPiece.getType().equals(Piece.Type.BLANK)){
             return false;
         } else if(currentPiece.getType().equals(Piece.Type.PAWN)){
-            if(dx == 0 && move.getDestination().getPiece().getType() == Piece.Type.BLANK){
-                if(dy == 1)
+            if(dy == 0 && move.getDestination().getPiece().getType() == Piece.Type.BLANK){
+                if(dx == 1)
                     return true;
-                if(dy == 2)
+                if(dx == 2)
                     if(currentPiece.isFirstMove())
                         return true;
                     else

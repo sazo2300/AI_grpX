@@ -19,7 +19,7 @@ public class Chess {
         try {
             Board board = new Board();
             board.printBoard();
-            Move move = new Move(board.getField("a2"), board.getField("a4"));
+            Move move = new Move(board.getField("b1"), board.getField("c2"));
             System.out.println(board.isMoveValid(move));
         } catch (Exception ex) {
             Logger.getLogger(Chess.class.getName()).log(Level.SEVERE, null, ex);
