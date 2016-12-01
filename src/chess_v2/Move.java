@@ -1,6 +1,7 @@
 package chess_v2;
 
 import chess_v2.Field.Position;
+import java.util.Objects;
 
 /**
  *
@@ -25,6 +26,34 @@ public class Move {
         this.origin = origin;
         this.destination = destination;
         
+    }
+    
+ 
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Move other = (Move) obj;
+        if (!Objects.equals(this.origin, other.origin)) {
+            return false;
+        }
+        if (!Objects.equals(this.destination, other.destination)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.origin);
+        hash = 67 * hash + Objects.hashCode(this.destination);
+        return hash;
     }
     
     public Field getOrigin() {
