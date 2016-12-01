@@ -29,49 +29,49 @@ public class Field {
         if(f.charAt(0) == 'a'){
             indexY = 0;
             String temp = f.replaceAll("\\D+","");
-            indexX = Integer.valueOf(f) - 1;
+            indexX = Integer.valueOf(temp) - 1;
             position = new Position(indexX, indexY);
         }
         else if(f.charAt(0) == 'b'){
             indexY = 1;
             String temp = f.replaceAll("\\D+","");
-            indexX = Integer.valueOf(f) - 1;
+            indexX = Integer.valueOf(temp) - 1;
             position = new Position(indexX, indexY);
         }
         else if(f.charAt(0) == 'c'){
             indexY = 2;
             String temp = f.replaceAll("\\D+","");
-            indexX = Integer.valueOf(f) - 1;
+            indexX = Integer.valueOf(temp) - 1;
             position = new Position(indexX, indexY);
         }
         else if(f.charAt(0) == 'd'){
             indexY = 3;
             String temp = f.replaceAll("\\D+","");
-            indexX = Integer.valueOf(f) - 1;
+            indexX = Integer.valueOf(temp) - 1;
             position = new Position(indexX, indexY);
         }
         else if(f.charAt(0) == 'e'){
             indexY = 4;
             String temp = f.replaceAll("\\D+","");
-            indexX = Integer.valueOf(f) - 1;
+            indexX = Integer.valueOf(temp) - 1;
             position = new Position(indexX, indexY);
         }
         else if(f.charAt(0) == 'f'){
             indexY = 5;
             String temp = f.replaceAll("\\D+","");
-            indexX = Integer.valueOf(f) - 1;
+            indexX = Integer.valueOf(temp) - 1;
             position = new Position(indexX, indexY);
         }
         else if(f.charAt(0) == 'g'){
             indexY = 6;
             String temp = f.replaceAll("\\D+","");
-            indexX = Integer.valueOf(f) - 1;
+            indexX = Integer.valueOf(temp) - 1;
             position = new Position(indexX, indexY);
         }
         else if(f.charAt(0) == 'h'){
             indexY = 7;
             String temp = f.replaceAll("\\D+","");
-            indexX = Integer.valueOf(f) - 1;
+            indexX = Integer.valueOf(temp) - 1;
             position = new Position(indexX, indexY);
         }
     }

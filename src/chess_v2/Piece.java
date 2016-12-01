@@ -54,6 +54,13 @@ public class Piece {
                 symbol = new String(Character.toChars(9812));
              else 
                 symbol = new String(Character.toChars(9818));
+        } else if(type == Type.BLANK) {
+            this.value = 0;
+            if(color.equals(Game.Color.WHITE))
+                symbol = new String(Character.toChars(8195));
+            else{ 
+                symbol = new String(Character.toChars(9607));
+            }
         }
     }
     
