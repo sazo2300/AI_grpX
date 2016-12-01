@@ -107,14 +107,19 @@ public class Board{
         return false;
     }
     
+    public Player checkWin(){
+        //Konceptuel metode til at returnere om en spiller har win condition
+        return new Player(Game.Color.WHITE);
+    }
+    
 
     
-    private List<Move> getValidMoves(Player player) {
+    public List<Move> getValidMoves(Game.Color color) {
         List<Move> validMoves = new ArrayList<>();
 
         for(Field[] f : state){
             for(Field r : f){
-                if(r.getPiece().getColor().equals(player.getColor())){
+                if(r.getPiece().getColor().equals(color)){
                     for(int i = 0 ; i < 8 ; i++){
                         for(int j = 0 ; j < 8 ; j++){
                             Move move = new Move(r, getField(i, j), this);
@@ -130,8 +135,14 @@ public class Board{
         return validMoves;
     }
     
-    public void move(Player player, Move move) {
-        List<Move> currentMoves = getValidMoves(player);
+    public Board simulateMove(Game.Color color, Move move){
+        Board simState = new Board(this);
+        simState.move(color, move);
+        return simState;
+    }
+    
+    public void move(Game.Color color, Move move) {
+        List<Move> currentMoves = getValidMoves(color);
         if(currentMoves.contains(move)){
             
             state[move.getDestination().getPosition().getX()][move.getDestination().getPosition().getY()].setPiece(move.getOrigin().getPiece());
@@ -140,9 +151,9 @@ public class Board{
                             .getPosition().getX()+move.getOrigin()
                                     .getPosition().getY())%2==0? Game.Color.BLACK : Game.Color.WHITE, Piece.Type.BLANK));
             move.getOrigin().getPiece().setFirstMove(false);
-            if(player.getColor().equals(Game.Color.WHITE) && move.getDestination().getPiece().getType().equals(Piece.Type.PAWN)){
+            if(color.equals(Game.Color.WHITE) && move.getDestination().getPiece().getType().equals(Piece.Type.PAWN)){
                 if(move.getDestination().getPosition().getX() == 7){
-                    move.getDestination().setPiece(new Piece(player.getColor(), Piece.Type.QUEEN));
+                    move.getDestination().setPiece(new Piece(color, Piece.Type.QUEEN));
                 }
             
             }
@@ -230,10 +241,10 @@ public class Board{
         return false;
     }
     
-    public boolean isCheck(Board board, Player player){
-        for(Move move : board.getValidMoves(player)){
+    public boolean isCheck(Board board, Game.Color color){
+        for(Move move : board.getValidMoves(color)){
             if(move.getDestination().getPiece().getType().equals(Piece.Type.KING)){
-                System.out.println("Player: " + player.getColor() + " has check.");
+                System.out.println("Player: " + color + " has check.");
                 return true;
             }
         }
