@@ -22,7 +22,7 @@ public class Chess {
             board.printBoard();
             Move move = new Move(board.getField("a2"), board.getField("a4"));
             System.out.println(board.isMoveValid(move));
-            board.move(white, move);
+            board.move(white.getColor(), move);
             board.printBoard();
         } catch (Exception ex) {
             Logger.getLogger(Chess.class.getName()).log(Level.SEVERE, null, ex);
