@@ -1,6 +1,12 @@
 package chess;
 import java.util.Random;
 import java.util.Scanner;
+
+/**
+ * 
+ * DEPRECATED! use chess_v2
+ * 
+ */
 public class Chess {
 
     Chess(){
