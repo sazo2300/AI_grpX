@@ -20,7 +20,7 @@ public class Chess {
             Player white = new Player(Game.Color.WHITE);
             Board board = new Board();
             board.printBoard();
-            Move move = new Move(board.getField("a2"), board.getField("a4"));
+            Move move = new Move(board.getField("b2"), board.getField("b4"));
             System.out.println(board.isMoveValid(move));
             board.move(white, move);
             board.printBoard();

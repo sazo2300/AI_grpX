@@ -240,6 +240,7 @@ public class Board{
         return false;
     }
     
+    
     public void printBoard(){
         StringBuilder board = new StringBuilder();
         for(int i = 7 ; i >= 0 ; i--){
@@ -252,6 +253,7 @@ public class Board{
         System.out.println(board);
     }
     
+    // Mulighed for at få et fælt ud fra skak koordinater.
     public Field getField(String f) throws Exception{
         int indexY;
         int indexX;
