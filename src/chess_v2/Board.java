@@ -50,6 +50,16 @@ public class Board{
         
     }
     
+    public Board(Board board) {
+        this.legalBlackMoves = board.legalBlackMoves;
+        this.legalWhiteMoves = board.legalWhiteMoves;
+        this.validBlackMoves = board.validBlackMoves;
+        this.validWhiteMoves = board.validWhiteMoves;
+        for(int i = 0; i < this.state.length; i++) {
+            System.arraycopy(board.state[i], 0, this.state[i], 0, this.state[0].length);
+        }
+    }
+    
     
     public boolean isMoveValid(Move move) {
         Piece currentPiece = move.getOrigin().getPiece();
