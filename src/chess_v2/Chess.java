@@ -17,10 +17,13 @@ public class Chess {
     
     public static void main(String args[]){
         try {
+            Player white = new Player(Game.Color.WHITE);
             Board board = new Board();
             board.printBoard();
-            Move move = new Move(board.getField("b1"), board.getField("c2"));
+            Move move = new Move(board.getField("a2"), board.getField("a4"));
             System.out.println(board.isMoveValid(move));
+            board.move(white, move);
+            board.printBoard();
         } catch (Exception ex) {
             Logger.getLogger(Chess.class.getName()).log(Level.SEVERE, null, ex);
         }
