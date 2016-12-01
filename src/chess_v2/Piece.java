@@ -13,6 +13,7 @@ public class Piece {
     private int value;
     private List<Move> moves;
     private String symbol;
+    private boolean firstMove = true;
 
     public Piece(Game.Color color, Type type) {
         this.type = type;
@@ -62,6 +63,14 @@ public class Piece {
                 symbol = new String(Character.toChars(9607));
             }
         }
+    }
+    
+    public boolean isFirstMove() {
+        return firstMove;
+    }
+
+    public void setFirstMove(boolean firstMove) {
+        this.firstMove = firstMove;
     }
     
     public Game.Color getColor() {
